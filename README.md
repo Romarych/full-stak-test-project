@@ -40,6 +40,7 @@ Open http://localhost:3000/
 ■   GraphQL
 ■   Tailwind
 ■   Cache
+■   WebSocket
 
 Форма добавления записи имеет поля:
 1. User Name (цифры и буквы латинского алфавита) – обязательное поле
