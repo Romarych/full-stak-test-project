@@ -1,9 +1,11 @@
 import sharp, {OutputInfo} from 'sharp';
 import path from 'path';
 import * as util from 'util';
+import {FilesType} from '../types';
+import {Response} from 'express';
 
 class uploadController {
-    async upload(req: any, res: any) {
+    async upload(req: FilesType, res: Response | any) {
         if (req.files.file) {
             try {
                 const file = req.files.file;

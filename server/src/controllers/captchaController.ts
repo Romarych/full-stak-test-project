@@ -1,7 +1,9 @@
 import svgCaptcha from 'svg-captcha';
+import {CaptchaRequestType, SessionCaptchaType} from '../types';
+import {Response} from 'express';
 
 class captchaController {
-    async check(req: any, res: any) {
+    async check(req: CaptchaRequestType & SessionCaptchaType, res: Response | any) {
         if (req.session.captcha === req.body.captcha) {
             res.status(200).send({message: 'Success!'});
         } else {
@@ -9,7 +11,7 @@ class captchaController {
         }
     }
 
-    async get(req: any, res: any) {
+    async get(req: SessionCaptchaType, res: Response | any) {
         const captcha = svgCaptcha.create();
         req.session.captcha = captcha.text;
         req.session.save();

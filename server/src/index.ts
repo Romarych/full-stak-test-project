@@ -55,7 +55,6 @@ export default class Server {
                 })
             })
         });
-
     }
 
     public async start() {
