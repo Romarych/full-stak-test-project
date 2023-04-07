@@ -160,7 +160,6 @@ export const PostForm: FC = () => {
         if (file && file.size > 100000 && file.type == 'text/plain') {
             errors.file = 'File must be less than 100KB';
         }
-        console.log('file.size --->', file?.size)
         return errors;
     }
 

@@ -55,10 +55,7 @@ class Server {
         const { app, getWss } = WSServer;
         const aWss = getWss();
         app.ws('/', (ws) => {
-            console.log('Success');
-            ws.send('Ты успешно подключен!');
             ws.on('message', (msg) => {
-                console.log(msg);
                 aWss.clients.forEach((client) => {
                     client.send(msg);
                 });
@@ -83,17 +80,3 @@ class Server {
 exports.default = Server;
 const server = new Server();
 server.start();
-// const app = express()
-//
-// const WSServer = require('express-ws')(app);
-//
-// app.use('/', (ws: any, req: any) => {
-//     console.log('Success');
-//
-//     ws.send('Ты успешно подключен!');
-//     ws.on('message', (msg: any) => {
-//         console.log(msg)
-//     })
-// });
-//
-// app.listen(7000, () => console.log(1111111111111))
