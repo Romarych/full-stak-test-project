@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/full-stak-test-project/static/css/main.12989cab.css",
+    "main.js": "/full-stak-test-project/static/js/main.20c1503e.js",
+    "static/js/787.2412afe7.chunk.js": "/full-stak-test-project/static/js/787.2412afe7.chunk.js",
+    "index.html": "/full-stak-test-project/index.html",
+    "main.12989cab.css.map": "/full-stak-test-project/static/css/main.12989cab.css.map",
+    "main.20c1503e.js.map": "/full-stak-test-project/static/js/main.20c1503e.js.map",
+    "787.2412afe7.chunk.js.map": "/full-stak-test-project/static/js/787.2412afe7.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.12989cab.css",
+    "static/js/main.20c1503e.js"
+  ]
+}
