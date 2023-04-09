@@ -10,7 +10,6 @@ import {schema} from './schema';
 import {db} from './db';
 import resolvers from './resolvers';
 import {router} from './routes';
-import {PostType} from './types';
 
 dotenv.config();
 const port = process.env.PORT || 5000;

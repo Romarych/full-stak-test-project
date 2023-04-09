@@ -50,11 +50,11 @@ export const Post: FC<{ post: PostType }> = ({post}) => {
             </div>
         }
         <div className="text-left text-[14px] text-black" dangerouslySetInnerHTML={{__html: post.text}}/>
-        {post.file && (post.file.indexOf('.txt') >= 0 || post.file.indexOf('blob') >= 0) &&
-            <iframe src={post.file.indexOf('blob') >= 0 ? post.file : host + post.file}></iframe>}
-        {post.file && post.file.indexOf('.txt') < 0 && post.file.indexOf('blob') < 0 &&
+        {post.file && post.file.indexOf('.txt') >= 0 &&
+            <iframe src={post.file.indexOf('blob') >= 0 ? post.file.replace('.txt', '') : host + post.file}></iframe>}
+        {post.file && post.file.indexOf('.txt') < 0 &&
             <img onClick={() => setIsView(!isView)}
                  className={`duration-500 cursor-pointer ${isView ? 'w-[600px]' : 'w-[300px]'}`}
-                 src={post.file.indexOf('blob') >= 0 ? post.file : host + post.file} alt="File"/>}
+                 src={post.file.indexOf('blob') >= 0 ? post.file.replace('.txt', '') : host + post.file} alt="File"/>}
     </div>
 };

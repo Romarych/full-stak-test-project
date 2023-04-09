@@ -2,6 +2,7 @@
   "name": "full-stack-test-project",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://romarych.github.io/full-stak-test-project",
   "dependencies": {
     "@apollo/client": "^3.7.10",
     "@testing-library/jest-dom": "^5.14.1",
@@ -12,6 +13,7 @@
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
     "formik": "^2.2.9",
+    "gh-pages": "^5.0.0",
     "graphql": "^16.6.0",
     "graphql-ws": "^5.12.1",
     "react": "^18.2.0",
@@ -25,7 +27,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build -r https://github.com/Romarych/full-stak-test-project.git"
   },
   "eslintConfig": {
     "extends": [

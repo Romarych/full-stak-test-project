@@ -11,7 +11,7 @@ export const PostForm: FC = () => {
     const allPosts = useReactiveVar(setAllPosts);
     const postParentId = useReactiveVar(setPostParentId);
     const currentPage = useReactiveVar(setCurrentPage);
-    console.log(allPosts)
+
     const [file, setFile] = useState<File | undefined>();
     const [tag, setTag] = useState<string>('');
     const [textarea, setTextarea] = useState<string>('');
@@ -25,7 +25,7 @@ export const PostForm: FC = () => {
 
     const tags = ["a", "code", "i", "strong"];
     const host = 'http://localhost:7000';
-    const wsHost = 'ws://localhost:7000/'
+    const wsHost = 'ws://localhost:7000/';
 
     const socket = new WebSocket(wsHost)
 
@@ -95,7 +95,6 @@ export const PostForm: FC = () => {
             }
 
             if (currentPage === 1) {
-                console.log(data.createPost, allPosts)
                 addPost(data.createPost, allPosts);
             } else {
                 setCurrentPage(1);
@@ -105,7 +104,8 @@ export const PostForm: FC = () => {
             if (currentPage === 1) {
                 let posts = allPosts;
                 if (posts.length > 25) posts = posts.filter((post, index) => index != 0);
-                const url = file ? URL.createObjectURL(file as unknown as Blob) : '';
+                let url = file ? URL.createObjectURL(file as unknown as Blob) : '';
+                if (file?.type == 'text/plain') url = url + '.txt'
                 setAllPosts([{
                     parentId: postParentId,
                     userName: values.userName,
