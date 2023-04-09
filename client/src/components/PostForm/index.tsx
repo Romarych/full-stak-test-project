@@ -11,7 +11,7 @@ export const PostForm: FC = () => {
     const allPosts = useReactiveVar(setAllPosts);
     const postParentId = useReactiveVar(setPostParentId);
     const currentPage = useReactiveVar(setCurrentPage);
-
+    console.log(allPosts)
     const [file, setFile] = useState<File | undefined>();
     const [tag, setTag] = useState<string>('');
     const [textarea, setTextarea] = useState<string>('');
@@ -43,12 +43,16 @@ export const PostForm: FC = () => {
         socket.onmessage = ({data}) => {
             try {
                 const post = JSON.parse(data);
-                addPost(post, allPosts);
+                if (currentPage === 1) {
+                    addPost(post, allPosts);
+                } else {
+                    setCurrentPage(1);
+                }
             } catch (e) {
                 console.log('Error --->', e);
             }
         }
-    }, []);
+    }, [allPosts, currentPage]);
 
     useEffect(() => {
         if (!isForm && allPosts?.length > 25) {
@@ -91,6 +95,7 @@ export const PostForm: FC = () => {
             }
 
             if (currentPage === 1) {
+                console.log(data.createPost, allPosts)
                 addPost(data.createPost, allPosts);
             } else {
                 setCurrentPage(1);
